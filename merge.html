@@ -26,7 +26,24 @@
             newElement.className = "merger";
             document.querySelector(".flex-container").appendChild(newElement);
         };
-    
+
+        document.getElementById("removeButton").onclick = function () {
+            const mergerItems = document.getElementsByClassName("merger");
+            const length = mergerItems.length;
+            if (length > 0) {
+                const middleIndex = Math.floor(length / 2);
+                document.querySelector(".flex-container").removeChild(mergerItems[middleIndex]);
+            }
+        };
+
+        document.getElementById("addFrontButton").onclick = function () {
+            const inputValue = document.getElementById("inputText").value;
+            const newElement = document.createElement("div");
+            newElement.innerHTML = inputValue;
+            newElement.className = "merger";
+            const container = document.querySelector(".flex-container");
+            container.insertBefore(newElement, container.firstChild);
+        };    
     </script>
 </body>
 </html>
